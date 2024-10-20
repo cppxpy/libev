@@ -594,6 +594,10 @@ of features other than just I/O events, but suffers from an extreme
 feature-first, correctness-later approach, and is slower than epoll, so
 it is not used by default.
 
+One important misdesign is that when sleeping in io_uring, the kernel
+wrongly counts that as disk I/O wait, keeping loadavg and a cpu core
+"virtually" busy, even if nothing actually waits for disk or uses CPU.
+
 If your application forks frequently, then this backend might be faster,
 as setting it up again after a fork is far more efficient with this
 backend, and it also doesn't suffer from the epoll design flaw of
