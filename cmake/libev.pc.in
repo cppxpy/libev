@@ -1,0 +1,12 @@
+prefix="@CMAKE_INSTALL_PREFIX@"
+exec_prefix="${prefix}"
+libdir="${prefix}/@LIBEV_LIBDIR@"
+includedir="${prefix}/@LIBEV_INCDIR@"
+
+Name: @PROJECT_NAME@
+Description: @CMAKE_PROJECT_DESCRIPTION@
+URL: @CMAKE_PROJECT_HOMEPAGE_URL@
+Version: @PROJECT_VERSION@
+Cflags: -I${includedir}
+Cflags.private:@LIBEV_CFLAGS_PC@
+Libs: -L${libdir} -l@_ev_lib@@LIBEV_LIBS_PC@

@@ -1,0 +1,8 @@
+/build
+*~
+.#*
+*#
+*.bak
+*.rej
+*.orig
+*.log
